@@ -10,6 +10,9 @@ class Category(models.Model):
 
     def __str__(self):
         return self.name
+
+class Products(models.Model):
+     list = models.ForeignKey(Category, related_name='Product')
     
 class Item(models.Model):
     category = models.ForeignKey(Category, related_name='items', on_delete=models.CASCADE)
@@ -23,3 +26,4 @@ class Item(models.Model):
     
     def __str__(self):
         return self.name
+
